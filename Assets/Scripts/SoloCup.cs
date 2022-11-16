@@ -25,6 +25,7 @@ public class SoloCup : MonoBehaviour
             Debug.Log("Point Scored!");
             gameReference.PointScored();
             Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
