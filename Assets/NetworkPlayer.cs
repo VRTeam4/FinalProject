@@ -26,7 +26,7 @@ namespace QuickStart
         // Update is called once per frame
         void Update()
         {
-            //if (!isLocalPlayer) { return; }
+            if (!isLocalPlayer) { return; }
 
             // float moveX = Input.GetAxis("Horizontal") * Time.deltaTime * 110.0f;
             // float moveZ = Input.GetAxis("Vertical") * Time.deltaTime * 4f;
