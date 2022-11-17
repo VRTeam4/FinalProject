@@ -9,10 +9,20 @@ public class PongBall : MonoBehaviour
     public float Lifetime = 10.0f;
     
     // Start is called before the first frame update
+    void Start() {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public void UnFreeze() {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+    }
+    
     public void StartCountdown()
     {
         StartCoroutine(DestroyAfterLifetime());
     }
+
+
 
     IEnumerator DestroyAfterLifetime()
     {

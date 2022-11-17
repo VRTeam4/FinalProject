@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BallSpawn : MonoBehaviour
 {
     public GameObject ballPrefab;
+    public Transform spawnPoint;
     public float spawnDelay = 2.0f;
     
     
@@ -16,8 +17,9 @@ public class BallSpawn : MonoBehaviour
         SpawnBall();
     }
 
-    public void BallRemoved()
+    public void BallRemoved(SelectEnterEventArgs args)
     {
+        args.interactableObject.selectEntered.RemoveAllListeners();
         StartCoroutine(SpawnAfterDelay());
     }
     
@@ -29,9 +31,9 @@ public class BallSpawn : MonoBehaviour
 
     public void SpawnBall()
     {
-        GameObject newBall = Instantiate(ballPrefab, transform.position, transform.rotation)
+        GameObject newBall = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation)
             .GameObject();
-        newBall.GetComponent<XRGrabInteractable>().selectEntered.AddListener(eventArgs => BallRemoved());
+        newBall.GetComponent<XRGrabInteractable>().selectEntered.AddListener(eventArgs => BallRemoved(eventArgs));
     }
 
     // Update is called once per frame
