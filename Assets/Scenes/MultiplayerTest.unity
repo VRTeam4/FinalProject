@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 8548453346703009240, guid: d0458b593240f499ebaa9d07cd047da5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8548453346703009240, guid: d0458b593240f499ebaa9d07cd047da5,
         type: 3}
@@ -511,7 +511,7 @@ PrefabInstance:
     - target: {fileID: 8548453346703009240, guid: d0458b593240f499ebaa9d07cd047da5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8548453346703009240, guid: d0458b593240f499ebaa9d07cd047da5,
         type: 3}
@@ -823,7 +823,7 @@ Transform:
   - {fileID: 437081305}
   - {fileID: 1394767398}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &667284601
 PrefabInstance:
@@ -1420,7 +1420,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
@@ -1602,7 +1602,8 @@ MonoBehaviour:
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 1
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 3936853641672849826, guid: 5c3699eee5eb81942a5e87b923729889, type: 3}
   timeInterpolationGui: 0
 --- !u!4 &1266027001
 Transform:
@@ -60196,7 +60197,7 @@ Transform:
   - {fileID: 7560651357757113589}
   - {fileID: 7560651357689459431}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7560651359091305334
 GameObject:
