@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Mirror;
 
-public class BallSpawn : MonoBehaviour
+public class BallSpawn : NetworkBehaviour
 {
     public GameObject ballPrefab;
     public Transform spawnPoint;
@@ -14,7 +15,7 @@ public class BallSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnBall();
+        //SpawnBall();
     }
 
     public void BallRemoved(SelectEnterEventArgs args)
@@ -34,6 +35,16 @@ public class BallSpawn : MonoBehaviour
         GameObject newBall = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation)
             .GameObject();
         newBall.GetComponent<XRGrabInteractable>().selectEntered.AddListener(eventArgs => BallRemoved(eventArgs));
+        if (isServer)
+        {
+            NetworkServer.Spawn(newBall);
+        }
+    }
+
+    public override void OnStartServer()
+
+    {
+        SpawnBall();
     }
 
     // Update is called once per frame

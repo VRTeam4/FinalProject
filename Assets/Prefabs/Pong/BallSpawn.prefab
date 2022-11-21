@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5458722411956692563}
   - component: {fileID: 8094008576066589242}
   - component: {fileID: 4670897658805857307}
-  - component: {fileID: 4207096501761520974}
   - component: {fileID: 4120146836765078525}
   m_Layer: 0
   m_Name: BallSpawn
@@ -86,21 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4207096501761520974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5539720354771344831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784b424d3865f4942b1b711713795b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  spawnDelay: 2
 --- !u!114 &4120146836765078525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784b424d3865f4942b1b711713795b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 5083687149544819518, guid: d0458b593240f499ebaa9d07cd047da5,
+  ballPrefab: {fileID: 3936853641672849826, guid: 5c3699eee5eb81942a5e87b923729889,
     type: 3}
   spawnPoint: {fileID: 5953808577593656587}
   spawnDelay: 2
