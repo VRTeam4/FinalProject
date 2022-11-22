@@ -10,7 +10,7 @@ public class SoloCup : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameReference = transform.parent.GetComponent<Pong>();
+        // gameReference = transform.parent.GetComponent<Pong>();
     }
 
     // Update is called once per frame
