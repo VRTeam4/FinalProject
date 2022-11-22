@@ -22,15 +22,15 @@ public class PongBall : NetworkBehaviour
 
     [Command(requiresAuthority = false)]
     public void BallGrabbed() {
-        if (!grabbed) {
+        if (isServer && !grabbed) {
             spawnPoint.GetComponent<BallSpawn>().BallRemoved();
         }
     }
 
     public void UnFreeze() {
         gameManager = GameObject.Find("GameManager");
-        BallGrabbed();
         gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
+        BallGrabbed();
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
     
