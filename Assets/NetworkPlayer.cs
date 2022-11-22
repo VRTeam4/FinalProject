@@ -39,6 +39,7 @@ namespace QuickStart
         [Command]
         public void CmdPickupItem(NetworkIdentity item)
         {
+            item.RemoveClientAuthority();
             item.AssignClientAuthority(connectionToClient);
         }
     }

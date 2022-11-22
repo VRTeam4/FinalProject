@@ -23,6 +23,7 @@ public class PongBall : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void BallGrabbed() {
         if (isServer && !grabbed) {
+            grabbed = true;
             spawnPoint.GetComponent<BallSpawn>().BallRemoved();
         }
     }
@@ -30,6 +31,8 @@ public class PongBall : NetworkBehaviour
     public void UnFreeze() {
         gameManager = GameObject.Find("GameManager");
         gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
+        gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
+
         BallGrabbed();
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
