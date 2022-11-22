@@ -12,8 +12,14 @@ namespace QuickStart
         public Transform leftHand;
         public Transform rightHand;
         private Transform leftRig;
+        private GameObject gameManager;
+        public NetworkConnectionToClient connection;
         public override void OnStartLocalPlayer()
         {
+            Debug.Log("TEST");
+            connection = connectionToClient;
+            gameManager = GameObject.Find("GameManager");
+            gameManager.GetComponent<GameManager>().networkPlayer = gameObject;
             XROrigin rig = FindObjectOfType<XROrigin>();
             leftRig = rig.transform.Find("CameraOffset/LeftHand (Smooth locomotion)");
         }
@@ -29,6 +35,11 @@ namespace QuickStart
         {
             target.position = rigTransform.position;
             target.rotation = rigTransform.rotation;
+        }
+        [Command]
+        public void CmdPickupItem(NetworkIdentity item)
+        {
+            item.AssignClientAuthority(connectionToClient);
         }
     }
 }

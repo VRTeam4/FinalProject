@@ -3,17 +3,23 @@ using System.Collections.Generic;
 //using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Mirror;
+using QuickStart;
 
-public class PongBall : MonoBehaviour
+public class PongBall : NetworkBehaviour
 {
     public float Lifetime = 10.0f;
-    
+    private GameObject gameManager;
     // Start is called before the first frame update
     void Start() {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public void UnFreeze() {
+        gameManager = GameObject.Find("GameManager");
+        //Debug.Log(gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<NetworkPlayer>());
+        //gameObject.GetComponent<NetworkIdentity>().AssignClientAuthority(gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().connection);
+        gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
     

@@ -30,21 +30,22 @@ public class BallSpawn : NetworkBehaviour
         SpawnBall();
     }
 
+    [Command(requiresAuthority = false)]
     public void SpawnBall()
     {
         GameObject newBall = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation)
             .GameObject();
         newBall.GetComponent<XRGrabInteractable>().selectEntered.AddListener(eventArgs => BallRemoved(eventArgs));
-        if (isServer)
-        {
-            NetworkServer.Spawn(newBall);
-        }
+        NetworkServer.Spawn(newBall);
     }
 
-    public override void OnStartServer()
+    public override void OnStartClient()
 
     {
-        SpawnBall();
+        if (isServer)
+        {
+            SpawnBall();
+        }
     }
 
     // Update is called once per frame
