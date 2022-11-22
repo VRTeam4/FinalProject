@@ -17,24 +17,27 @@ public class PongBall : NetworkBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        gameManager = GameObject.Find("GameManager");
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
     [Command(requiresAuthority = false)]
     public void BallGrabbed() {
         if (isServer && !grabbed) {
             grabbed = true;
+            Unfreeze();
             spawnPoint.GetComponent<BallSpawn>().BallRemoved();
         }
     }
 
-    public void UnFreeze() {
-        gameManager = GameObject.Find("GameManager");
-        gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
-        gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
-
-        BallGrabbed();
+    [ClientRpc]
+    public void Unfreeze() {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+    }
+
+    public void localGrab() {
+        gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
+        BallGrabbed();
     }
     
     [Command(requiresAuthority = false)]
