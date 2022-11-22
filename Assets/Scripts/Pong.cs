@@ -52,7 +52,7 @@ public class Pong : MiniGame
     void SpawnCup(Vector3 position)
     {
         GameObject newCup = Instantiate(soloCupPrefab, position, soloCupPrefab.transform.rotation).GameObject();
-        // newCup.transform.SetParent(transform);
+        newCup.transform.SetParent(transform);
         NetworkServer.Spawn(newCup);
     }
 }
