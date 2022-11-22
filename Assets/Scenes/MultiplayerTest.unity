@@ -882,6 +882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63eebdf2477c842c38f11b7e819065b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
   score: 0
   started: 0
   ended: 0
@@ -1718,6 +1721,7 @@ MonoBehaviour:
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 3936853641672849826, guid: 5c3699eee5eb81942a5e87b923729889, type: 3}
+  - {fileID: 8819744340301245326, guid: 22d286b719414432880f305fda6217b8, type: 3}
   timeInterpolationGui: 0
 --- !u!4 &1266027001
 Transform:
