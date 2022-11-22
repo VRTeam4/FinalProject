@@ -20,7 +20,7 @@ public class PongBall : NetworkBehaviour
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
-    [Command]
+    [Command(requiresAuthority = false)]
     public void BallGrabbed() {
         if (!grabbed) {
             spawnPoint.GetComponent<BallSpawn>().BallRemoved();
