@@ -17,7 +17,7 @@ public class PongBall : NetworkBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
     [Command(requiresAuthority = false)]
@@ -34,6 +34,7 @@ public class PongBall : NetworkBehaviour
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
     
+    [Command(requiresAuthority = false)]
     public void StartCountdown()
     {
         StartCoroutine(DestroyAfterLifetime());
