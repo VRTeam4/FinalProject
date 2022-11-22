@@ -10,15 +10,26 @@ public class PongBall : NetworkBehaviour
 {
     public float Lifetime = 10.0f;
     private GameObject gameManager;
+    public GameObject spawnPoint;
+
+    [SyncVar]
+    public bool grabbed;
+
     // Start is called before the first frame update
     void Start() {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
+    [Command]
+    public void BallGrabbed() {
+        if (!grabbed) {
+            spawnPoint.GetComponent<BallSpawn>().BallRemoved();
+        }
+    }
+
     public void UnFreeze() {
         gameManager = GameObject.Find("GameManager");
-        //Debug.Log(gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<NetworkPlayer>());
-        //gameObject.GetComponent<NetworkIdentity>().AssignClientAuthority(gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().connection);
+        BallGrabbed();
         gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }

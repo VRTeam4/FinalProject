@@ -18,9 +18,8 @@ public class BallSpawn : NetworkBehaviour
         //SpawnBall();
     }
 
-    public void BallRemoved(SelectEnterEventArgs args)
+    public void BallRemoved()
     {
-        args.interactableObject.selectEntered.RemoveAllListeners();
         StartCoroutine(SpawnAfterDelay());
     }
     
@@ -35,7 +34,7 @@ public class BallSpawn : NetworkBehaviour
     {
         GameObject newBall = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation)
             .GameObject();
-        newBall.GetComponent<XRGrabInteractable>().selectEntered.AddListener(eventArgs => BallRemoved(eventArgs));
+        newBall.GetComponent<PongBall>().spawnPoint = gameObject;
         NetworkServer.Spawn(newBall);
     }
 
