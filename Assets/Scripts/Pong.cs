@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Mirror;
 
 public class Pong : MiniGame
 {
@@ -14,13 +15,21 @@ public class Pong : MiniGame
     public int cupsRemaining = 0;
     
     // Start is called before the first frame update
-    void Start()
+    void StartPong()
     {
         foreach (var pos in spawnPositions)
         {
             SpawnCup(pos.position);
             cupsRemaining += 1;
             started = true;
+        }
+    }
+
+    public override void OnStartClient()
+    {
+        if (isServer)
+        {
+            StartPong();
         }
     }
 
@@ -39,6 +48,7 @@ public class Pong : MiniGame
         }
     }
     
+    [Command(requiresAuthority = false)]
     void SpawnCup(Vector3 position)
     {
         GameObject newCup = Instantiate(soloCupPrefab, position, soloCupPrefab.transform.rotation).GameObject();

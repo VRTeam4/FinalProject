@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class SoloCup : MonoBehaviour
+public class SoloCup : NetworkBehaviour
 {
     private Pong gameReference;
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class SoloCup : MonoBehaviour
         
     }
 
+    [Command(requiresAuthority = false)]
     public void CupScored(Collider other)
     {
         Debug.Log("TriggerEntered!");
