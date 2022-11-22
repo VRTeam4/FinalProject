@@ -19,15 +19,19 @@ public class SoloCup : NetworkBehaviour
         
     }
 
-    [Command(requiresAuthority = false)]
     public void CupScored(Collider other)
     {
         Debug.Log("TriggerEntered!");
         if (other.CompareTag("PongBall")) {
             Debug.Log("Point Scored!");
             gameReference.PointScored();
-            Destroy(gameObject);
-            Destroy(other.gameObject);
+            destroy();
+            other.gameObject.GetComponent<PongBall>().destroy();
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void destroy() {
+        Destroy(gameObject);
     }
 }

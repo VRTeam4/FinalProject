@@ -35,6 +35,11 @@ public class PongBall : NetworkBehaviour
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 
+    [Command(requiresAuthority = false)]
+    public void destroy() {
+        Destroy(gameObject);
+    }
+
     public void localGrab() {
         gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
         BallGrabbed();
