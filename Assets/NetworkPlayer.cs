@@ -11,25 +11,30 @@ namespace QuickStart
     {
         public Transform leftHand;
         public Transform rightHand;
+        public Transform head;
         private Transform leftRig;
+        private Transform rightRig;
+        private Transform cameraRig;
         private GameObject gameManager;
         public NetworkConnectionToClient connection;
         public override void OnStartLocalPlayer()
         {
-            Debug.Log("TEST");
             connection = connectionToClient;
             gameManager = GameObject.Find("GameManager");
             gameManager.GetComponent<GameManager>().networkPlayer = gameObject;
             XROrigin rig = FindObjectOfType<XROrigin>();
+            cameraRig = rig.transform.Find("CameraOffset/Main Camera");
             leftRig = rig.transform.Find("CameraOffset/LeftHand (Smooth locomotion)");
+            rightRig = rig.transform.Find("CameraOffset/RightHand (Teleport Locomotion)");
         }
 
         // Update is called once per frame
         void Update()
         {
             if (!isLocalPlayer) { return; }
+            MapPosition(head, cameraRig);
             MapPosition(leftHand, leftRig);
-            
+            MapPosition(rightHand, rightRig);
         }
         void MapPosition(Transform target, Transform rigTransform)
         {
