@@ -2527,6 +2527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   networkPlayer: {fileID: 0}
+  pong: {fileID: 529203929}
 --- !u!4 &2001690831
 Transform:
   m_ObjectHideFlags: 0

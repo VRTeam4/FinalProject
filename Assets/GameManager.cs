@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject networkPlayer;
+    public Pong pong;
     // Start is called before the first frame update
     void Start()
     {
