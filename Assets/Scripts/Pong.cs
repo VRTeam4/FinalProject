@@ -13,10 +13,22 @@ public class Pong : MiniGame
     public List<Transform> spawnPositions;
     public GameObject soloCupPrefab;
     public int cupsRemaining = 0;
+
+    public List<BallSpawn> ballSpawn1;
+    public List<BallSpawn> ballSpawn2;
+
     
     // Start is called before the first frame update
-    void StartPong()
+    public void StartPong()
     {
+        foreach (var spawn in ballSpawn1)
+        {
+            spawn.SpawnBall();
+        }
+        foreach (var spawn in ballSpawn2)
+        {
+            spawn.SpawnBall();
+        }
         foreach (var pos in spawnPositions)
         {
             SpawnCup(pos.position);
@@ -25,13 +37,13 @@ public class Pong : MiniGame
         }
     }
 
-    public override void OnStartClient()
-    {
-        if (isServer)
-        {
-            StartPong();
-        }
-    }
+    // public override void OnStartClient()
+    // {
+    //     if (isServer)
+    //     {
+    //         StartPong();
+    //     }
+    // }
 
     // Update is called once per frame
     void Update()

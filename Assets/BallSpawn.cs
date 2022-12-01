@@ -38,14 +38,14 @@ public class BallSpawn : NetworkBehaviour
         NetworkServer.Spawn(newBall);
     }
 
-    public override void OnStartClient()
+    // public override void OnStartClient()
 
-    {
-        if (isServer)
-        {
-            SpawnBall();
-        }
-    }
+    // {
+    //     if (isServer)
+    //     {
+    //         SpawnBall();
+    //     }
+    // }
 
     // Update is called once per frame
     void Update()
