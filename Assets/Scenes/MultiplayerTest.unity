@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   networkManager: {fileID: 1266027000}
-  ipAddress: localhost
+  ipAddress: 52.14.44.232
 --- !u!4 &1183358940
 Transform:
   m_ObjectHideFlags: 0
