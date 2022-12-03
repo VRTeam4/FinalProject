@@ -10,10 +10,13 @@ public class PongBall : NetworkBehaviour
 {
     public float Lifetime = 10.0f;
     private GameObject gameManager;
-    public GameObject spawnPoint;
+    public BallSpawn spawnPoint;
 
     [SyncVar]
     public bool grabbed;
+
+    [SyncVar]
+    public int spawnID;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,13 +24,18 @@ public class PongBall : NetworkBehaviour
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
-    [Command(requiresAuthority = false)]
+    //[Command(requiresAuthority = false)]
     public void BallGrabbed() {
-        if (isServer && !grabbed) {
+        if (!grabbed) {
             grabbed = true;
-            Unfreeze();
-            spawnPoint.GetComponent<BallSpawn>().BallRemoved();
+            clientUnfreeze();
+            spawnPoint.BallRemoved();
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void clientUnfreeze() {
+        Unfreeze();
     }
 
     [ClientRpc]
@@ -37,10 +45,13 @@ public class PongBall : NetworkBehaviour
 
     [Command(requiresAuthority = false)]
     public void destroy() {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        NetworkServer.Destroy(gameObject);
     }
 
     public void localGrab() {
+        Debug.Log("BALL GRABBED");
+        spawnPoint = gameManager.GetComponent<GameManager>().pong.ballSpawn[spawnID];
         gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
         BallGrabbed();
     }

@@ -32,6 +32,7 @@ public class SoloCup : NetworkBehaviour
 
     [Command(requiresAuthority = false)]
     public void destroy() {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        NetworkServer.Destroy(gameObject);
     }
 }

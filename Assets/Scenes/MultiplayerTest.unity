@@ -566,10 +566,25 @@ PrefabInstance:
       propertyPath: sceneId
       value: 3581806344
       objectReference: {fileID: 0}
+    - target: {fileID: 1844747962984791539, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201933643337414931, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4210878161878774241, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: m_Name
       value: BallSpawnSet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210878161878774241, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4356516813380383603, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
@@ -581,10 +596,20 @@ PrefabInstance:
       propertyPath: sceneId
       value: 1560641176
       objectReference: {fileID: 0}
+    - target: {fileID: 5814349903464232507, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7400745884607492928, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: sceneId
       value: 2902207821
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551845797501925664, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5340417947792537253, guid: 065920b12f1794b03ab4ad6cc3ef2ae8, type: 3}
@@ -1304,7 +1329,7 @@ MonoBehaviour:
   offlineScene: Assets/Scenes/MultiplayerTest.unity
   onlineScene: Assets/Scenes/MultiplayerTest.unity
   transport: {fileID: 1266026998}
-  networkAddress: 52.14.44.232
+  networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 5501519541741856404, guid: 112c9675121870b488300153a2547b88,
@@ -1647,16 +1672,15 @@ MonoBehaviour:
   soloCupPrefab: {fileID: 8819744340301245326, guid: 22d286b719414432880f305fda6217b8,
     type: 3}
   cupsRemaining: 0
-  ballSpawn1:
-  - {fileID: 452728779}
-  - {fileID: 1282775496}
-  - {fileID: 1200856042}
-  - {fileID: 340872838}
-  ballSpawn2:
+  ballSpawn:
   - {fileID: 20361930}
   - {fileID: 3376091}
   - {fileID: 1586325693}
   - {fileID: 1806272036}
+  - {fileID: 452728779}
+  - {fileID: 1282775496}
+  - {fileID: 1200856042}
+  - {fileID: 340872838}
 --- !u!114 &1586325693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2701035621836560505, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,

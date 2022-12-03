@@ -14,21 +14,20 @@ public class Pong : MiniGame
     public GameObject soloCupPrefab;
     public int cupsRemaining = 0;
 
-    public List<BallSpawn> ballSpawn1;
-    public List<BallSpawn> ballSpawn2;
+    public List<BallSpawn> ballSpawn;
 
     
     // Start is called before the first frame update
     public void StartPong()
     {
-        foreach (var spawn in ballSpawn1)
+        int id = 0;
+        foreach (var spawn in ballSpawn)
         {
+            spawn.setId(id);
             spawn.SpawnBall();
+            id += 1;
         }
-        foreach (var spawn in ballSpawn2)
-        {
-            spawn.SpawnBall();
-        }
+
         foreach (var pos in spawnPositions)
         {
             SpawnCup(pos.position);

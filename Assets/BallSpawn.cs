@@ -10,6 +10,7 @@ public class BallSpawn : NetworkBehaviour
     public GameObject ballPrefab;
     public Transform spawnPoint;
     public float spawnDelay = 2.0f;
+    public int id_ON_SERVER;
     
     
     // Start is called before the first frame update
@@ -30,12 +31,21 @@ public class BallSpawn : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
+    public void setId(int id)
+    {
+        id_ON_SERVER = id;
+    }
+
+    [Command(requiresAuthority = false)]
     public void SpawnBall()
     {
+        Debug.Log("BALL SPAWN");
         GameObject newBall = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation)
             .GameObject();
-        newBall.GetComponent<PongBall>().spawnPoint = gameObject;
         NetworkServer.Spawn(newBall);
+        Debug.Log("ID");
+        Debug.Log(id_ON_SERVER);
+        newBall.GetComponent<PongBall>().spawnID = id_ON_SERVER;
     }
 
     // public override void OnStartClient()
