@@ -39,12 +39,9 @@ public class BallSpawn : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void SpawnBall()
     {
-        Debug.Log("BALL SPAWN");
         GameObject newBall = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation)
             .GameObject();
         NetworkServer.Spawn(newBall);
-        Debug.Log("ID");
-        Debug.Log(id_ON_SERVER);
         newBall.GetComponent<PongBall>().spawnID = id_ON_SERVER;
     }
 

@@ -50,7 +50,6 @@ public class PongBall : NetworkBehaviour
     }
 
     public void localGrab() {
-        Debug.Log("BALL GRABBED");
         spawnPoint = gameManager.GetComponent<GameManager>().pong.ballSpawn[spawnID];
         gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
         BallGrabbed();
