@@ -1034,6 +1034,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
+--- !u!1 &1183358938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183358940}
+  - component: {fileID: 1183358939}
+  m_Layer: 0
+  m_Name: AutoConnect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1183358939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183358938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5055e921701571944839edc93726e24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkManager: {fileID: 1266027000}
+  ipAddress: 52.14.44.232
+--- !u!4 &1183358940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183358938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5993016, y: 1.6648172, z: 4.4513564}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1200856042 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2701035621836560505, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
@@ -1258,7 +1304,7 @@ MonoBehaviour:
   offlineScene: Assets/Scenes/MultiplayerTest.unity
   onlineScene: Assets/Scenes/MultiplayerTest.unity
   transport: {fileID: 1266026998}
-  networkAddress: localhost
+  networkAddress: 52.14.44.232
   maxConnections: 100
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 5501519541741856404, guid: 112c9675121870b488300153a2547b88,
