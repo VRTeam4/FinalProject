@@ -21,8 +21,12 @@ namespace QuickStart
         {
             connection = connectionToClient;
             gameManager = GameObject.Find("GameManager");
+            int numOtherPlayer = GameObject.FindGameObjectsWithTag("Player").Length;
+            numOtherPlayer = numOtherPlayer % gameManager.GetComponent<GameManager>().playerSpawnPos.Count;
             gameManager.GetComponent<GameManager>().networkPlayer = gameObject;
             XROrigin rig = FindObjectOfType<XROrigin>();
+            rig.transform.rotation = gameManager.GetComponent<GameManager>().playerSpawnPos[numOtherPlayer-1].rotation;
+            rig.transform.position = gameManager.GetComponent<GameManager>().playerSpawnPos[numOtherPlayer-1].position;
             cameraRig = rig.transform.Find("CameraOffset/Main Camera");
             leftRig = rig.transform.Find("CameraOffset/LeftHand (Smooth locomotion)");
             rightRig = rig.transform.Find("CameraOffset/RightHand (Teleport Locomotion)");

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject networkPlayer;
     public Pong pong;
+    public List<Transform> playerSpawnPos;
     // Start is called before the first frame update
     void Start()
     {
