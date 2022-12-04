@@ -18,10 +18,15 @@ public class Pong : MiniGame
 
     public GameObject startButton;
 
+    public int teamZeroScore;
+    public int teamOneScore;
+
     
     // Start is called before the first frame update
     public void StartPong()
     {
+        teamOneScore = 0;
+        teamZeroScore = 0;
         TellServerRemoveButton();
         int id = 0;
         foreach (var spawn in ballSpawn)
@@ -33,7 +38,11 @@ public class Pong : MiniGame
 
         foreach (var pos in spawnPositions)
         {
-            SpawnCup(pos.position);
+            int TeamID = 0;
+            if (cupsRemaining >= 10) {
+                TeamID = 1;
+            }
+            SpawnCup(pos.position, TeamID);
             cupsRemaining += 1;
             started = true;
         }
@@ -64,19 +73,24 @@ public class Pong : MiniGame
         
     }
 
-    public void PointScored()
+    public void PointScored(int TeamID)
     {
-        cupsRemaining -= 1;
-        if (cupsRemaining == 0)
+        if (TeamID == 0) {
+            teamZeroScore += 1;
+        } else if (TeamID == 1) {
+            teamOneScore += 1;
+        }
+        if (teamOneScore == 10 || teamZeroScore == 10)
         {
             GameOver();
         }
     }
     
     [Command(requiresAuthority = false)]
-    void SpawnCup(Vector3 position)
+    void SpawnCup(Vector3 position, int TeamID)
     {
         GameObject newCup = Instantiate(soloCupPrefab, position, soloCupPrefab.transform.rotation).GameObject();
         NetworkServer.Spawn(newCup);
+        newCup.GetComponent<SoloCup>().SetTeamID(TeamID);
     }
 }

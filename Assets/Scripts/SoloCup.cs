@@ -7,6 +7,9 @@ using Mirror;
 public class SoloCup : NetworkBehaviour
 {
     private Pong gameReference;
+    
+    [SyncVar]
+    public int TeamID;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +22,15 @@ public class SoloCup : NetworkBehaviour
         
     }
 
+    [ClientRpc]
+    public void SetTeamID(int id) {
+        TeamID = id;
+    }
+
     public void CupScored(Collider other)
     {
-        Debug.Log("TriggerEntered!");
         if (other.CompareTag("PongBall")) {
-            Debug.Log("Point Scored!");
-            gameReference.PointScored();
+            gameReference.PointScored(TeamID);
             destroy();
             other.gameObject.GetComponent<PongBall>().destroy();
         }
