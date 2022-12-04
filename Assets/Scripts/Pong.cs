@@ -16,10 +16,13 @@ public class Pong : MiniGame
 
     public List<BallSpawn> ballSpawn;
 
+    public GameObject startButton;
+
     
     // Start is called before the first frame update
     public void StartPong()
     {
+        RemoveButton();
         int id = 0;
         foreach (var spawn in ballSpawn)
         {
@@ -34,6 +37,11 @@ public class Pong : MiniGame
             cupsRemaining += 1;
             started = true;
         }
+    }
+
+    [ClientRpc]
+    public void RemoveButton() {
+        startButton.SetActive(false);
     }
 
     // public override void OnStartClient()

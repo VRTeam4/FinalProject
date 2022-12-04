@@ -722,7 +722,7 @@ PrefabInstance:
     - target: {fileID: 8622900193489091695, guid: 957f3298be503b943b45a11493f2dd26,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8622900193489091695, guid: 957f3298be503b943b45a11493f2dd26,
         type: 3}
@@ -1054,7 +1054,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
@@ -1685,6 +1685,7 @@ MonoBehaviour:
   - {fileID: 1282775496}
   - {fileID: 1200856042}
   - {fileID: 340872838}
+  startButton: {fileID: 1829675978}
 --- !u!114 &1586325693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2701035621836560505, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
