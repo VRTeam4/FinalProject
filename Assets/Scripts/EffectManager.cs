@@ -18,7 +18,7 @@ using UnityEngine;
      void Start ()
      {
          globalVolume = gameObject.GetComponent<Volume>();
-         globalVolume.profile = visualEffects.crazy;
+         globalVolume.profile = visualEffects.normal;
 
      }
      
