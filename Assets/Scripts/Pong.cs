@@ -22,7 +22,7 @@ public class Pong : MiniGame
     // Start is called before the first frame update
     public void StartPong()
     {
-        RemoveButton();
+        TellServerRemoveButton();
         int id = 0;
         foreach (var spawn in ballSpawn)
         {
@@ -37,6 +37,12 @@ public class Pong : MiniGame
             cupsRemaining += 1;
             started = true;
         }
+    }
+
+    [Command (requiresAuthority=false)]
+    public void TellServerRemoveButton()
+    {
+        RemoveButton();
     }
 
     [ClientRpc]
