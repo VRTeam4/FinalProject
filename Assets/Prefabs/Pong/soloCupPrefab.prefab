@@ -44,8 +44,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0003406029
-  m_Center: {x: 0.000010679352, y: -0.00010731866, z: 0.0011791849}
+  m_Radius: 0.0005494868
+  m_Center: {x: 0.00009563895, y: -0.000008339745, z: 0.001821961}
 --- !u!114 &1326769632690891866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,10 +88,10 @@ GameObject:
   - component: {fileID: 8819744340301245325}
   - component: {fileID: 8819744340301245323}
   - component: {fileID: 8819744340301245324}
-  - component: {fileID: 4108915354408861708}
   - component: {fileID: 8889032764479733684}
   - component: {fileID: 887400987047851546}
   - component: {fileID: 1010992207579804025}
+  - component: {fileID: 8500177870954667668}
   m_Layer: 0
   m_Name: soloCupPrefab
   m_TagString: Untagged
@@ -166,20 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4108915354408861708
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8819744340301245326}
-  m_Material: {fileID: 13400000, guid: 283db16b33b3045818edf05d461c527c, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 0
-  m_Mesh: {fileID: -1918930550682952855, guid: 2b2eae95debee4e938a4b61b0340366a, type: 3}
 --- !u!114 &8889032764479733684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,3 +227,16 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!65 &8500177870954667668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819744340301245326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0013648339, y: 0.0013680251, z: 0.002153254}
+  m_Center: {x: -0.0000022562745, y: -2.3283063e-10, z: 0.0010488923}
