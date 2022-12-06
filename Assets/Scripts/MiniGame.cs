@@ -9,8 +9,19 @@ public class MiniGame : NetworkBehaviour
     public bool started = false;
     public bool ended = false;
 
+    [Command(requiresAuthority = false)]
     public void GameOver()
     {
+        GameObject[] balls =  GameObject.FindGameObjectsWithTag("PongBall");
+        GameObject[] cups = GameObject.FindGameObjectsWithTag("PongCup");
+        foreach (var ball in balls)
+        {
+            NetworkServer.Destroy(ball);
+        }
+        foreach (var cup in cups)
+        {
+            NetworkServer.Destroy(cup);
+        }
         ended = true;
         Debug.Log("The game is over!");
     }
