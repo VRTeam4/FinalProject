@@ -17,6 +17,7 @@ public class Pong : MiniGame
     public List<BallSpawn> ballSpawn;
 
     public GameObject startButton;
+    public GameObject startButtonTwo;
 
     public int teamZeroScore;
     public int teamOneScore;
@@ -57,6 +58,31 @@ public class Pong : MiniGame
     [ClientRpc]
     public void RemoveButton() {
         startButton.SetActive(false);
+        startButtonTwo.SetActive(false);
+    }
+
+    [ClientRpc]
+    public void EnableButton() {
+        startButton.SetActive(true);
+        startButtonTwo.SetActive(true);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void GameOver()
+    {
+        GameObject[] balls =  GameObject.FindGameObjectsWithTag("PongBall");
+        GameObject[] cups = GameObject.FindGameObjectsWithTag("PongCup");
+        foreach (var ball in balls)
+        {
+            NetworkServer.Destroy(ball);
+        }
+        foreach (var cup in cups)
+        {
+            NetworkServer.Destroy(cup);
+        }
+        ended = true;
+        EnableButton();
+        Debug.Log("The game is over!");
     }
 
     // public override void OnStartClient()
