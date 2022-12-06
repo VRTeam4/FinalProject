@@ -7,6 +7,8 @@ public class AutoJoin : MonoBehaviour
 {
     public NetworkManager networkManager;
     public string ipAddress;
+    public bool host;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,14 @@ public class AutoJoin : MonoBehaviour
     void JoinRemoteServer()
     {
         networkManager.networkAddress = ipAddress;
-        networkManager.StartClient();
+        if (host)
+        {
+            networkManager.StartHost();
+        }
+        else
+        {
+            networkManager.StartClient();
+        }
+        
     }
 }
