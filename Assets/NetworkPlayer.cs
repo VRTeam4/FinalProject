@@ -24,12 +24,24 @@ namespace QuickStart
             int numOtherPlayer = GameObject.FindGameObjectsWithTag("Player").Length;
             numOtherPlayer = numOtherPlayer % gameManager.GetComponent<GameManager>().playerSpawnPos.Count;
             gameManager.GetComponent<GameManager>().networkPlayer = gameObject;
+            gameManager.GetComponent<GameManager>().teamID = numOtherPlayer;
             XROrigin rig = FindObjectOfType<XROrigin>();
             rig.transform.rotation = gameManager.GetComponent<GameManager>().playerSpawnPos[numOtherPlayer].rotation;
             rig.transform.position = gameManager.GetComponent<GameManager>().playerSpawnPos[numOtherPlayer].position;
             cameraRig = rig.transform.Find("CameraOffset/Main Camera");
             leftRig = rig.transform.Find("CameraOffset/LeftHand (Smooth locomotion)");
             rightRig = rig.transform.Find("CameraOffset/RightHand (Teleport Locomotion)");
+            head.gameObject.layer = LayerMask.NameToLayer("CameraIgnore");
+            ChangeLayersRecursively(head, "CameraIgnore");
+        }
+
+        private void ChangeLayersRecursively(Transform trans , string name)
+        {
+            foreach (Transform child in trans)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer(name);
+                ChangeLayersRecursively(child, name);
+            }
         }
 
         // Update is called once per frame

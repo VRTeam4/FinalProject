@@ -21,6 +21,10 @@ using UnityEngine;
          globalVolume.profile = visualEffects.normal;
 
      }
+
+     public void SetView(VolumeProfile effect) {
+        globalVolume.profile = effect;
+     }
      
      // Update is called once per frame
      void Update () {

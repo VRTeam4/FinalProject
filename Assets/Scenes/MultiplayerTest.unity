@@ -597,7 +597,7 @@ PrefabInstance:
     - target: {fileID: 5567718057179498699, guid: 6c042f40bf76343dd89c7bfe6db8059f,
         type: 3}
       propertyPath: m_Name
-      value: Effect Manager
+      value: EffectManager
       objectReference: {fileID: 0}
     - target: {fileID: 5567718057179498702, guid: 6c042f40bf76343dd89c7bfe6db8059f,
         type: 3}
@@ -1168,6 +1168,50 @@ Transform:
   m_Father: {fileID: 1561732342}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!1 &1026990457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1026990459}
+  - component: {fileID: 1026990458}
+  m_Layer: 0
+  m_Name: CrazyEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1026990458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026990457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a2c2256eb8994c82f356fd3d7ade2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1026990459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026990457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2001690831}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1058369655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 573469533727147645, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
@@ -1309,7 +1353,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183358938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5055e921701571944839edc93726e24a, type: 3}
   m_Name: 
@@ -1918,6 +1962,7 @@ MonoBehaviour:
   - {fileID: 1762127193}
   - {fileID: 1512320624}
   - {fileID: 421252850}
+  gameManager: {fileID: 2001690830}
   soloCupPrefab: {fileID: 8819744340301245326, guid: 22d286b719414432880f305fda6217b8,
     type: 3}
   cupsRemaining: 0
@@ -1977,6 +2022,50 @@ Transform:
   m_Father: {fileID: 1561732342}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1615693475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1615693476}
+  - component: {fileID: 1615693477}
+  m_Layer: 0
+  m_Name: WideEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1615693476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615693475}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2001690831}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615693477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615693475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10d8d575a5e1f844856e7079879790e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1762127192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,6 +2305,10 @@ MonoBehaviour:
   playerSpawnPos:
   - {fileID: 1812362734}
   - {fileID: 1937338990}
+  effects:
+  - {fileID: 1615693477}
+  - {fileID: 1026990458}
+  teamID: 0
 --- !u!4 &2001690831
 Transform:
   m_ObjectHideFlags: 0
@@ -2227,7 +2320,9 @@ Transform:
   m_LocalPosition: {x: -0.38799524, y: 0.5434066, z: 3.959734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1615693476}
+  - {fileID: 1026990459}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -11,6 +11,7 @@ public class Pong : MiniGame
     //    7 6 5 
     //   4 3 2 1
     public List<Transform> spawnPositions;
+    public GameManager gameManager;
     public GameObject soloCupPrefab;
     public int cupsRemaining = 0;
 
@@ -53,6 +54,18 @@ public class Pong : MiniGame
     public void TellServerRemoveButton()
     {
         RemoveButton();
+    }
+
+    [Command (requiresAuthority=false)]
+    public void ApplyEffect(int TeamID) {
+        ApplyEffectHelper(TeamID);
+    }
+
+    [ClientRpc]
+    public void ApplyEffectHelper(int TeamID) {
+        if (gameManager.teamID != TeamID) {
+             gameManager.AddEffect();
+        }
     }
 
     [ClientRpc]
@@ -101,6 +114,7 @@ public class Pong : MiniGame
 
     public void PointScored(int TeamID)
     {
+        ApplyEffect(TeamID);
         if (TeamID == 0) {
             teamZeroScore += 1;
         } else if (TeamID == 1) {
