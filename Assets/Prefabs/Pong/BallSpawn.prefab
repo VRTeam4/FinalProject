@@ -104,7 +104,8 @@ MonoBehaviour:
   ballPrefab: {fileID: 3936853641672849826, guid: 5c3699eee5eb81942a5e87b923729889,
     type: 3}
   spawnPoint: {fileID: 5953808577593656587}
-  spawnDelay: 2
+  spawnDelay: 0.5
+  id_ON_SERVER: 0
 --- !u!114 &6700216144308459487
 MonoBehaviour:
   m_ObjectHideFlags: 0
