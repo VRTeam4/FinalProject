@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour
     public List<Transform> playerSpawnPos;
     public List<Effect> effects;
     public int teamID;
+    public List<string> ballTypes;
+    public GameObject ballPrefab;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ballTypes = new List<string>();
+        ballTypes.Add("Normal");
     }
 
     // Update is called once per frame

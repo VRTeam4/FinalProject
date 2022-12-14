@@ -101,7 +101,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
-  ballPrefab: {fileID: 3936853641672849826, guid: 5c3699eee5eb81942a5e87b923729889,
+  ballPrefab: {fileID: 3936853641672849826, guid: 6bd3da8f29bf67e499995933fecc7dfb,
     type: 3}
   spawnPoint: {fileID: 5953808577593656587}
   spawnDelay: 0.5

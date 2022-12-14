@@ -5,6 +5,12 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Mirror;
 using QuickStart;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using Mirror;
 
 public class PongBall : NetworkBehaviour
 {
@@ -18,10 +24,44 @@ public class PongBall : NetworkBehaviour
     [SyncVar]
     public int spawnID;
 
+    string ballType;
+
+
     // Start is called before the first frame update
     void Start() {
         gameManager = GameObject.Find("GameManager");
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        List<string> ballTypes = gameManager.GetComponent<GameManager>().ballTypes;
+        System.Random rnd = new System.Random();
+        int index = rnd.Next(0,ballTypes.Count); 
+        Debug.Log(ballTypes.Count);
+        Debug.Log(index);
+        ballType = ballTypes[index];
+
+        if (spawnID != -999) {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
+        
+    }
+
+    [Command(requiresAuthority = false)]
+    public void SpawnBall(Vector3 velocity)
+    {
+        GameObject newBall = Instantiate(gameManager.GetComponent<GameManager>().ballPrefab, transform.position, transform.rotation).GameObject();        
+        newBall.GetComponent<PongBall>().spawnID = -999;
+        NetworkServer.Spawn(newBall);
+
+        Debug.Log(GetComponent<Rigidbody>().velocity);
+        Debug.Log(velocity);
+        newBall.GetComponent<PongBall>().Unfreeze();
+        newBall.GetComponent<PongBall>().setVelocity(velocity);
+        
+        
+    }
+
+    public void BallReleased() {
+        if (ballType == "Split") {
+            StartCoroutine(SpawnAfterDelay());
+        }
     }
 
     //[Command(requiresAuthority = false)]
@@ -41,6 +81,12 @@ public class PongBall : NetworkBehaviour
     [ClientRpc]
     public void Unfreeze() {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+    }
+
+    
+    [ClientRpc]
+    public void setVelocity(Vector3 velocity) {
+        GetComponent<Rigidbody>().velocity = velocity;
     }
 
     [Command(requiresAuthority = false)]
@@ -81,5 +127,14 @@ public class PongBall : NetworkBehaviour
         }
         
         Destroy(gameObject);
+    }
+
+    IEnumerator SpawnAfterDelay()
+    {
+        // May want to improve this implementation
+        yield return new WaitForSeconds(0.1f);
+    
+        Debug.Log(GetComponent<Rigidbody>().velocity);
+        SpawnBall(GetComponent<Rigidbody>().velocity);    
     }
 }
