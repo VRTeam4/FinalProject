@@ -33,8 +33,6 @@ public class PongBall : NetworkBehaviour
         List<string> ballTypes = gameManager.GetComponent<GameManager>().ballTypes;
         System.Random rnd = new System.Random();
         int index = rnd.Next(0,ballTypes.Count); 
-        Debug.Log(ballTypes.Count);
-        Debug.Log(index);
         ballType = ballTypes[index];
 
         if (spawnID != -999) {
@@ -49,13 +47,8 @@ public class PongBall : NetworkBehaviour
         GameObject newBall = Instantiate(gameManager.GetComponent<GameManager>().ballPrefab, transform.position, transform.rotation).GameObject();        
         newBall.GetComponent<PongBall>().spawnID = -999;
         NetworkServer.Spawn(newBall);
-
-        Debug.Log(GetComponent<Rigidbody>().velocity);
-        Debug.Log(velocity);
         newBall.GetComponent<PongBall>().Unfreeze();
         newBall.GetComponent<PongBall>().setVelocity(velocity);
-        
-        
     }
 
     public void BallReleased() {

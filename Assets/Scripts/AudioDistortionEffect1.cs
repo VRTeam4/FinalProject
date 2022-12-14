@@ -20,4 +20,11 @@ public class AudioDistortionEffect1 : Effect
         audioSource.GetComponent<AudioDistortionFilter>().distortionLevel = 0.6f;
        }
     }
+
+    public override void RemoveEffect()
+    {
+        foreach (GameObject audioSource in audioSources) {
+        audioSource.GetComponent<AudioDistortionFilter>().distortionLevel = 0f;
+       }
+    }
 }

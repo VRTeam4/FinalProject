@@ -16,4 +16,8 @@ public class WideEffect : Effect
     public override void ApplyEffect() {
        em.SetView(em.visualEffects.wide);
     }
+
+    public override void RemoveEffect() {
+       em.SetView(em.visualEffects.normal);
+    }
 }

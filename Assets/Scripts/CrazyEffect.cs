@@ -16,4 +16,8 @@ public class CrazyEffect : Effect
     public override void ApplyEffect() {
        em.SetView(em.visualEffects.crazy);
     }
+
+    public override void RemoveEffect() {
+       em.SetView(em.visualEffects.normal);
+    }
 }

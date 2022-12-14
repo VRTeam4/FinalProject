@@ -13,7 +13,7 @@ public class Pong : MiniGame
     public List<Transform> spawnPositions;
     public GameManager gameManager;
     public GameObject soloCupPrefab;
-    public int cupsRemaining = 0;
+    public int cupsRemaining;
 
     public List<BallSpawn> ballSpawn;
 
@@ -27,6 +27,7 @@ public class Pong : MiniGame
     // Start is called before the first frame update
     public void StartPong()
     {
+        cupsRemaining = 0;
         teamOneScore = 0;
         teamZeroScore = 0;
         TellServerRemoveButton();
@@ -83,6 +84,7 @@ public class Pong : MiniGame
     [Command(requiresAuthority = false)]
     public void GameOver()
     {
+        gameManager.RemoveActiveEffects();
         GameObject[] balls =  GameObject.FindGameObjectsWithTag("PongBall");
         GameObject[] cups = GameObject.FindGameObjectsWithTag("PongCup");
         foreach (var ball in balls)
@@ -114,6 +116,8 @@ public class Pong : MiniGame
 
     public void PointScored(int TeamID)
     {
+        Debug.Log("SCORED");
+        Debug.Log(TeamID);
         ApplyEffect(TeamID);
         if (TeamID == 0) {
             teamZeroScore += 1;

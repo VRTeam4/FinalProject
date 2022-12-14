@@ -16,4 +16,10 @@ public class SplitBallEffect : Effect
     public override void ApplyEffect() {
         gameManager.ballTypes.Add("Split");
     }
+
+    public override void RemoveEffect()
+    {
+        gameManager.ballTypes = new List<string>();
+        gameManager.ballTypes.Add("Normal");
+    }
 }

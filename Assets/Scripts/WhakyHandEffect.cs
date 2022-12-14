@@ -31,4 +31,8 @@ public class WhakyHandEffect : Effect
         playerXRLeft.rotationAction = rightRotation;
         playerXRRight.rotationAction = leftRotation;
     }
+    public override void RemoveEffect() {
+        playerXRLeft.rotationAction = leftRotation;
+        playerXRRight.rotationAction = rightRotation;
+    }
 }

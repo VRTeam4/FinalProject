@@ -23,4 +23,14 @@ public class AudioEffect : Effect
         audioSource.GetComponent<AudioSource>().volume = 1.2f * audioSource.GetComponent<AudioSource>().volume;
        }
     }
+
+    public override void RemoveEffect()
+    {
+        foreach (GameObject audioSource in audioSources) {
+        System.Random rnd = new System.Random();
+        int index = rnd.Next(0,2);        
+        audioSource.GetComponent<AudioSource>().pitch = 1f;
+        audioSource.GetComponent<AudioSource>().volume = 0.25f;
+       }
+    }
 }
