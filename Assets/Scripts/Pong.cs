@@ -116,8 +116,6 @@ public class Pong : MiniGame
 
     public void PointScored(int TeamID)
     {
-        Debug.Log("SCORED");
-        Debug.Log(TeamID);
         ApplyEffect(TeamID);
         if (TeamID == 0) {
             teamZeroScore += 1;
