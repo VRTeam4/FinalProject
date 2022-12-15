@@ -865,12 +865,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 88495539}
     m_Modifications:
-    - target: {fileID: 244033897153009506, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
-        type: 3}
-      propertyPath: smallBallPrefab
-      value: 
-      objectReference: {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0,
-        type: 3}
     - target: {fileID: 573469533727147645, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: m_RootOrder
@@ -936,12 +930,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2701035621836560505, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
-        type: 3}
-      propertyPath: smallBallPrefab
-      value: 
-      objectReference: {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0,
-        type: 3}
     - target: {fileID: 3201933643337414931, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: m_IsActive
@@ -972,23 +960,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6459063839711221585, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
-        type: 3}
-      propertyPath: smallBallPrefab
-      value: 
-      objectReference: {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0,
-        type: 3}
     - target: {fileID: 7400745884607492928, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: sceneId
       value: 2902207821
       objectReference: {fileID: 0}
-    - target: {fileID: 7806257162684208049, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
-        type: 3}
-      propertyPath: smallBallPrefab
-      value: 
-      objectReference: {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0,
-        type: 3}
     - target: {fileID: 8551845797501925664, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: m_IsActive
@@ -1789,7 +1765,6 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 3936853641672849826, guid: 6bd3da8f29bf67e499995933fecc7dfb, type: 3}
   - {fileID: 8819744340301245326, guid: 22d286b719414432880f305fda6217b8, type: 3}
-  - {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0, type: 3}
   timeInterpolationGui: 0
 --- !u!4 &1266027001
 Transform:
@@ -1904,7 +1879,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366025168}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1919,12 +1894,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 88495539}
     m_Modifications:
-    - target: {fileID: 244033897153009506, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
-        type: 3}
-      propertyPath: smallBallPrefab
-      value: 
-      objectReference: {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0,
-        type: 3}
     - target: {fileID: 573469533727147645, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: m_RootOrder
@@ -1985,12 +1954,6 @@ PrefabInstance:
       propertyPath: sceneId
       value: 1170300716
       objectReference: {fileID: 0}
-    - target: {fileID: 2701035621836560505, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
-        type: 3}
-      propertyPath: smallBallPrefab
-      value: 
-      objectReference: {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0,
-        type: 3}
     - target: {fileID: 4210878161878774241, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: m_Name
@@ -2006,23 +1969,11 @@ PrefabInstance:
       propertyPath: sceneId
       value: 2994499459
       objectReference: {fileID: 0}
-    - target: {fileID: 6459063839711221585, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
-        type: 3}
-      propertyPath: smallBallPrefab
-      value: 
-      objectReference: {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0,
-        type: 3}
     - target: {fileID: 7400745884607492928, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
         type: 3}
       propertyPath: sceneId
       value: 2890502072
       objectReference: {fileID: 0}
-    - target: {fileID: 7806257162684208049, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
-        type: 3}
-      propertyPath: smallBallPrefab
-      value: 
-      objectReference: {fileID: 3936853641672849826, guid: ef8931252f415114e8e9c3815d1ea4f0,
-        type: 3}
     m_RemovedComponents:
     - {fileID: 5340417947792537253, guid: 065920b12f1794b03ab4ad6cc3ef2ae8, type: 3}
     - {fileID: 7782787277259831742, guid: 065920b12f1794b03ab4ad6cc3ef2ae8, type: 3}
@@ -2302,50 +2253,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a10d8d575a5e1f844856e7079879790e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1652593694
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1652593695}
-  - component: {fileID: 1652593696}
-  m_Layer: 0
-  m_Name: SmallBallEffect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1652593695
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652593694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2001690831}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1652593696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652593694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6acd4c3cb99469045be87193c3f959e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1762127192
@@ -2642,7 +2549,6 @@ MonoBehaviour:
   - {fileID: 303259434}
   - {fileID: 1765343805}
   - {fileID: 1366025169}
-  - {fileID: 1652593696}
   teamID: 0
   ballTypes: []
   ballPrefab: {fileID: 3936853641672849826, guid: 6bd3da8f29bf67e499995933fecc7dfb,
@@ -2665,7 +2571,6 @@ Transform:
   - {fileID: 1765343806}
   - {fileID: 303259435}
   - {fileID: 1366025170}
-  - {fileID: 1652593695}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
