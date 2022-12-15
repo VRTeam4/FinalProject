@@ -12,10 +12,11 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Mirror;
 
+
 public class PongBall : NetworkBehaviour
 {
     public float Lifetime = 10.0f;
-    private GameObject gameManager;
+    private GameManager gameManager;
     public BallSpawn spawnPoint;
 
     [SyncVar]
@@ -24,27 +25,21 @@ public class PongBall : NetworkBehaviour
     [SyncVar]
     public int spawnID;
 
-    string ballType;
+    public string ballType;
 
 
     // Start is called before the first frame update
     void Start() {
-        gameManager = GameObject.Find("GameManager");
-        List<string> ballTypes = gameManager.GetComponent<GameManager>().ballTypes;
-        System.Random rnd = new System.Random();
-        int index = rnd.Next(0,ballTypes.Count); 
-        ballType = ballTypes[index];
-
+        gameManager = FindObjectOfType<GameManager>();
         if (spawnID != -999) {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
-        
     }
 
     [Command(requiresAuthority = false)]
     public void SpawnBall(Vector3 velocity)
     {
-        GameObject newBall = Instantiate(gameManager.GetComponent<GameManager>().ballPrefab, transform.position, transform.rotation).GameObject();        
+        GameObject newBall = Instantiate(gameManager.ballPrefab, transform.position, transform.rotation).GameObject();        
         newBall.GetComponent<PongBall>().spawnID = -999;
         NetworkServer.Spawn(newBall);
         newBall.GetComponent<PongBall>().Unfreeze();
@@ -89,8 +84,8 @@ public class PongBall : NetworkBehaviour
     }
 
     public void localGrab() {
-        spawnPoint = gameManager.GetComponent<GameManager>().pong.ballSpawn[spawnID];
-        gameManager.GetComponent<GameManager>().networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
+        spawnPoint = gameManager.pong.ballSpawn[spawnID];
+        gameManager.networkPlayer.GetComponent<QuickStart.NetworkPlayer>().CmdPickupItem(gameObject.GetComponent<NetworkIdentity>());
         BallGrabbed();
     }
     
