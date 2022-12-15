@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallBallEffect : Effect
+public class TBallEffect : Effect
 {
     GameManager gameManager;
 
@@ -14,13 +14,13 @@ public class SmallBallEffect : Effect
 
     // Update is called once per frame
     public override void ApplyEffect() {
-        Debug.Log("SMALL BALL");
-        gameManager.small = true;
-        gameManager.tBall = false;
+        Debug.Log("T BALL");
+        gameManager.small = false;
+        gameManager.tBall = true;
     }
 
     public override void RemoveEffect()
     {
-        gameManager.small = false;
+        gameManager.tBall = false;
     }
 }

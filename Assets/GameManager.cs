@@ -13,7 +13,9 @@ public class GameManager : NetworkBehaviour
     public List<string> ballTypes;
     public GameObject ballPrefab;
     public GameObject smallBallPrefab;
+    public GameObject tBallPrefab;
     public bool small;
+    public bool tBall;
     private List<Effect> curEffects;
 
 
@@ -21,6 +23,7 @@ public class GameManager : NetworkBehaviour
     void Start()
     {
         small = false;
+        tBall = false;
         curEffects = new List<Effect>(effects);
         ballTypes = new List<string>();
         ballTypes.Add("Normal");

@@ -27,7 +27,7 @@ public class BallSpawn : NetworkBehaviour
     IEnumerator SpawnAfterDelay()
     {
         yield return new WaitForSeconds(spawnDelay);
-        SpawnBall(gameManager.small);
+        SpawnBall(gameManager.small, gameManager.tBall);
     }
 
     [Command(requiresAuthority = false)]
@@ -37,12 +37,15 @@ public class BallSpawn : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
-    public void SpawnBall(bool small)
+    public void SpawnBall(bool small, bool tball)
     {
         GameObject newBall = null;
         gameManager = FindObjectOfType<GameManager>();
         if (small) {
             newBall = Instantiate(gameManager.smallBallPrefab, spawnPoint.position, spawnPoint.rotation)
+                .GameObject();
+        } else if (tball) {
+            newBall = Instantiate(gameManager.tBallPrefab, spawnPoint.position, new Quaternion(0f,135f,0f,-90f))
                 .GameObject();
         } else {
             newBall = Instantiate(gameManager.ballPrefab, spawnPoint.position, spawnPoint.rotation)
