@@ -44,8 +44,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.00044792145
-  m_Center: {x: 0.000010679364, y: -4.209785e-18, z: 0.0011791838}
+  m_Radius: 0.0006321833
+  m_Center: {x: 0.00009563895, y: -0.000008339745, z: 0.0016795546}
 --- !u!114 &1326769632690891866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,11 +88,13 @@ GameObject:
   - component: {fileID: 8819744340301245325}
   - component: {fileID: 8819744340301245323}
   - component: {fileID: 8819744340301245324}
-  - component: {fileID: 4108915354408861708}
   - component: {fileID: 8889032764479733684}
+  - component: {fileID: 887400987047851546}
+  - component: {fileID: 1010992207579804025}
+  - component: {fileID: 1644803730826480577}
   m_Layer: 0
   m_Name: soloCupPrefab
-  m_TagString: Untagged
+  m_TagString: PongCup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,20 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4108915354408861708
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8819744340301245326}
-  m_Material: {fileID: 13400000, guid: 283db16b33b3045818edf05d461c527c, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 0
-  m_Mesh: {fileID: -1918930550682952855, guid: 2b2eae95debee4e938a4b61b0340366a, type: 3}
 --- !u!114 &8889032764479733684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,3 +178,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27b7cbbb9cd34f3cb3b24c273f4f435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
+  TeamID: 0
+--- !u!114 &887400987047851546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819744340301245326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 2177364644
+  serverOnly: 0
+  visible: 0
+  hasSpawned: 0
+--- !u!114 &1010992207579804025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819744340301245326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 8819744340301245325}
+  clientAuthority: 0
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!64 &1644803730826480577
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819744340301245326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: -1918930550682952855, guid: 2b2eae95debee4e938a4b61b0340366a, type: 3}

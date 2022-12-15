@@ -11,51 +11,57 @@ namespace QuickStart
     {
         public Transform leftHand;
         public Transform rightHand;
+        public Transform head;
         private Transform leftRig;
+        private Transform rightRig;
+        private Transform cameraRig;
+        private GameObject gameManager;
+        public NetworkConnectionToClient connection;
         public override void OnStartLocalPlayer()
         {
-            //Camera.main.transform.SetParent(transform);
-            //Camera.main.transform.localPosition = new Vector3(0, 0, 0);
+            connection = connectionToClient;
+            gameManager = GameObject.Find("GameManager");
+            int numOtherPlayer = GameObject.FindGameObjectsWithTag("Player").Length;
+            numOtherPlayer = numOtherPlayer % gameManager.GetComponent<GameManager>().playerSpawnPos.Count;
+            gameManager.GetComponent<GameManager>().networkPlayer = gameObject;
+            gameManager.GetComponent<GameManager>().teamID = numOtherPlayer;
             XROrigin rig = FindObjectOfType<XROrigin>();
-            Debug.Log(rig);
+            rig.transform.rotation = gameManager.GetComponent<GameManager>().playerSpawnPos[numOtherPlayer].rotation;
+            rig.transform.position = gameManager.GetComponent<GameManager>().playerSpawnPos[numOtherPlayer].position;
+            cameraRig = rig.transform.Find("CameraOffset/Main Camera");
             leftRig = rig.transform.Find("CameraOffset/LeftHand (Smooth locomotion)");
-            //Debug.Log("okay");
-            Debug.Log(leftRig);
+            rightRig = rig.transform.Find("CameraOffset/RightHand (Teleport Locomotion)");
+            head.gameObject.layer = LayerMask.NameToLayer("CameraIgnore");
+            ChangeLayersRecursively(head, "CameraIgnore");
+        }
+
+        private void ChangeLayersRecursively(Transform trans , string name)
+        {
+            foreach (Transform child in trans)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer(name);
+                ChangeLayersRecursively(child, name);
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
             if (!isLocalPlayer) { return; }
-
-            // float moveX = Input.GetAxis("Horizontal") * Time.deltaTime * 110.0f;
-            // float moveZ = Input.GetAxis("Vertical") * Time.deltaTime * 4f;
-
-            // transform.Rotate(0, moveX, 0);
-            // transform.Translate(0, 0, moveZ);
+            MapPosition(head, cameraRig);
             MapPosition(leftHand, leftRig);
-            //MapPosition(rightHand, XRNode.RightHand);
-            
+            MapPosition(rightHand, rightRig);
         }
         void MapPosition(Transform target, Transform rigTransform)
         {
-            //InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);
-            //InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Quaternion rotation);
-
             target.position = rigTransform.position;
             target.rotation = rigTransform.rotation;
-            //Debug.Log(position);
-            //target.rotation = rotation;
         }
-
-        //void MapPosition(Transform target, XRNode node)
-        //{
-            //InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Vector3 position);
-            //InputDevices.GetDeviceAtXRNode(node).TryGetFeatureValue(CommonUsages.devicePosition, out Quaternion rotation);
-
-            //target.position = position;
-            //Debug.Log(position);
-            //target.rotation = rotation;
-        //}
+        [Command]
+        public void CmdPickupItem(NetworkIdentity item)
+        {
+            item.RemoveClientAuthority();
+            item.AssignClientAuthority(connectionToClient);
+        }
     }
 }

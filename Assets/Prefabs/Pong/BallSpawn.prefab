@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5458722411956692563}
   - component: {fileID: 8094008576066589242}
   - component: {fileID: 4670897658805857307}
-  - component: {fileID: 4207096501761520974}
   - component: {fileID: 4120146836765078525}
+  - component: {fileID: 6700216144308459487}
   m_Layer: 0
   m_Name: BallSpawn
   m_TagString: Untagged
@@ -27,15 +27,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5539720354771344831}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 4.0263, y: 3.935002, z: -0.71616685}
-  m_LocalScale: {x: 0.08571429, y: 0.0000833333, z: 0.099999994}
+  m_LocalScale: {x: 0.08, y: 0.0000833333, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5953808577593656587}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!33 &8094008576066589242
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -86,21 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4207096501761520974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5539720354771344831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784b424d3865f4942b1b711713795b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  spawnDelay: 2
 --- !u!114 &4120146836765078525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,10 +98,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784b424d3865f4942b1b711713795b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 5083687149544819518, guid: d0458b593240f499ebaa9d07cd047da5,
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
+  ballPrefab: {fileID: 3936853641672849826, guid: 6bd3da8f29bf67e499995933fecc7dfb,
     type: 3}
   spawnPoint: {fileID: 5953808577593656587}
-  spawnDelay: 2
+  spawnDelay: 0.5
+  id_ON_SERVER: 0
+--- !u!114 &6700216144308459487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5539720354771344831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 1761197695
+  serverOnly: 0
+  visible: 0
+  hasSpawned: 0
 --- !u!1 &7141719926480634218
 GameObject:
   m_ObjectHideFlags: 0
