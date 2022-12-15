@@ -12,12 +12,15 @@ public class GameManager : NetworkBehaviour
     public int teamID;
     public List<string> ballTypes;
     public GameObject ballPrefab;
+    public GameObject smallBallPrefab;
+    public bool small;
     private List<Effect> curEffects;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        small = false;
         curEffects = new List<Effect>(effects);
         ballTypes = new List<string>();
         ballTypes.Add("Normal");

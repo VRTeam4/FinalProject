@@ -7,16 +7,16 @@ using Mirror;
 
 public class BallSpawn : NetworkBehaviour
 {
-    public GameObject ballPrefab;
     public Transform spawnPoint;
     public float spawnDelay = 2.0f;
     public int id_ON_SERVER;
+    private GameManager gameManager;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        //SpawnBall();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     public void BallRemoved()
@@ -27,7 +27,7 @@ public class BallSpawn : NetworkBehaviour
     IEnumerator SpawnAfterDelay()
     {
         yield return new WaitForSeconds(spawnDelay);
-        SpawnBall();
+        SpawnBall(gameManager.small);
     }
 
     [Command(requiresAuthority = false)]
@@ -37,10 +37,17 @@ public class BallSpawn : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
-    public void SpawnBall()
+    public void SpawnBall(bool small)
     {
-        GameObject newBall = Instantiate(ballPrefab, spawnPoint.position, spawnPoint.rotation)
-            .GameObject();
+        GameObject newBall = null;
+        gameManager = FindObjectOfType<GameManager>();
+        if (small) {
+            newBall = Instantiate(gameManager.smallBallPrefab, spawnPoint.position, spawnPoint.rotation)
+                .GameObject();
+        } else {
+            newBall = Instantiate(gameManager.ballPrefab, spawnPoint.position, spawnPoint.rotation)
+                .GameObject();
+        }
         NetworkServer.Spawn(newBall);
         newBall.GetComponent<PongBall>().spawnID = id_ON_SERVER;
     }

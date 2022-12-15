@@ -1382,6 +1382,50 @@ Transform:
   m_Father: {fileID: 1561732342}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1106423756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1106423758}
+  - component: {fileID: 1106423757}
+  m_Layer: 0
+  m_Name: SmallBallEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1106423757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106423756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acd4c3cb99469045be87193c3f959e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1106423758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106423756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2001690831}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1123390279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 573469533727147645, guid: 065920b12f1794b03ab4ad6cc3ef2ae8,
@@ -1765,6 +1809,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 3936853641672849826, guid: 6bd3da8f29bf67e499995933fecc7dfb, type: 3}
   - {fileID: 8819744340301245326, guid: 22d286b719414432880f305fda6217b8, type: 3}
+  - {fileID: 3936853641672849826, guid: 6248837e8cde251468ee678bedcb5b06, type: 3}
   timeInterpolationGui: 0
 --- !u!4 &1266027001
 Transform:
@@ -2549,10 +2594,14 @@ MonoBehaviour:
   - {fileID: 303259434}
   - {fileID: 1765343805}
   - {fileID: 1366025169}
+  - {fileID: 1106423757}
   teamID: 0
   ballTypes: []
   ballPrefab: {fileID: 3936853641672849826, guid: 6bd3da8f29bf67e499995933fecc7dfb,
     type: 3}
+  smallBallPrefab: {fileID: 3936853641672849826, guid: 6248837e8cde251468ee678bedcb5b06,
+    type: 3}
+  small: 0
 --- !u!4 &2001690831
 Transform:
   m_ObjectHideFlags: 0
@@ -2571,6 +2620,7 @@ Transform:
   - {fileID: 1765343806}
   - {fileID: 303259435}
   - {fileID: 1366025170}
+  - {fileID: 1106423758}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

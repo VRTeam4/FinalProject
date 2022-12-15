@@ -35,7 +35,7 @@ public class Pong : MiniGame
         foreach (var spawn in ballSpawn)
         {
             spawn.setId(id);
-            spawn.SpawnBall();
+            spawn.SpawnBall(false);
             id += 1;
         }
 
